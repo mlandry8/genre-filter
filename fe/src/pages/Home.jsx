@@ -25,14 +25,16 @@ const Home = ({params}) => {
     }, [code])
 
    useEffect (() => {
-      const authString = 'Bearer ' + accessToken
-      axios.get('https://api.spotify.com/v1/me', {headers: {Authorization: authString}}
-      ).then(function (response) {
-         console.log(response.data);
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
+      if (accessToken){
+         const authString = 'Bearer ' + accessToken
+         axios.get('https://api.spotify.com/v1/me', {headers: {Authorization: authString}}
+         ).then(function (response) {
+            console.log(response.data);
+            })
+            .catch(function (error) {
+            console.log(error);
+            });
+      }
    }, [accessToken])
 
    const handleLogin = () => {
