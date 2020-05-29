@@ -6,7 +6,8 @@ venv:
 
 run:
 	# export FLASK_APP=src/app.py;
-	venv/bin/flask run;
+	export FLASK_ENV=development; \
+	venv/bin/python -m flask run;
 
 clean: 
 	rm -rf venv
